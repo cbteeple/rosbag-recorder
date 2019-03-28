@@ -1,0 +1,3 @@
+<launch>
+	<node name="rosbag_recorder" pkg="rosbag_recorder" type="rosbag_recorder_server.py" output="screen" />
+</launch>
