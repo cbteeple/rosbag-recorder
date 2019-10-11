@@ -8,9 +8,14 @@ import signal
 from os.path import expanduser
 
 pidDict = {}
+recording = False
  
 def recordTopics(req):
 	global pidDict
+	global record
+
+	if recording:
+		pass
 
 	command = "rosbag record -b 512 -o " + expanduser("~") + "/" + req.name
 	print("Recording to bag named %s. Topics:"%(req.name))
@@ -20,10 +25,15 @@ def recordTopics(req):
 
 	pidDict[req.name] = subprocess.Popen(command, stdin=subprocess.PIPE, shell=True, cwd="/tmp/")
 
+	recording = True
 	return RecordTopicsResponse(True)
  
 def stopRecording(req):
 	global pidDict
+	global recording
+
+	if !recording:
+		pass
 
 	if req.name in pidDict:
 		print("Stop recording to bag named %s"%(req.name))
@@ -35,6 +45,7 @@ def stopRecording(req):
 	else:
 		print("No current recording with name %s!"%req.name)
 
+	recording = False
 	return StopRecordingResponse(True)
  
 def rosbagRecorder():
