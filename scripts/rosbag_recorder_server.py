@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 
 from rosbag_recorder.srv import *
 import rospy
@@ -32,7 +32,7 @@ def stopRecording(req):
 	global pidDict
 	global recording
 
-	if !recording:
+	if not recording:
 		pass
 
 	if req.name in pidDict:
