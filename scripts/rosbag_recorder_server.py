@@ -17,7 +17,7 @@ def recordTopics(req):
 	if recording:
 		pass
 
-	command = "rosbag record -b 512 -o " + expanduser("~") + "/" + req.name
+	command = "rosbag record -b 512 -o " + req.name
 	print("Recording to bag named %s. Topics:"%(req.name))
 	for t in req.topics:
 		print(t)
