@@ -1,6 +1,9 @@
 <launch>
+	<arg name="pickle" default="false" doc="Pickle the data after you're done" />
+
 	<node name="rosbag_recorder" pkg="rosbag_recorder" type="rosbag_recorder_server.py" output="screen">
 		<remap from="record_topics" to="rosbag_recorder/record_topics" />
 		<remap from="stop_recording" to="rosbag_recorder/stop_recording" />
+		<param name="pickle_on_complete" type="bool" value="$(arg pickle)" />
 	</node>
 </launch>
