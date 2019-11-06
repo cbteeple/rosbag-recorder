@@ -12,6 +12,6 @@ Includes `*.srv` definitions necessary to issue requests.
 ## Running
 
 - Start the service using rosrun: `rosrun rosbag_recorder rosbag_recorder_server.py`
-- Start the service using launch file: `roslaunch rosbag_recorder rosbag_recorder_server.launch`
-    - Pickle each bag after it's saved: `roslaunch rosbag_recorder rosbag_recorder_server.launch pickle:=true` _(Note, this could take a long time if you're saving super large amounts of data)_
+- Start the service using launch file: `roslaunch rosbag_recorder rosbag_recorder.launch`
+    - Pickle each bag after it's saved: `roslaunch rosbag_recorder rosbag_recorder.launch pickle:=true` _(Note, this could take a long time if you're saving super large amounts of data)_
 - Use the `qml-ros-recorder` QML plugin in an application to start/stop recording remotely
