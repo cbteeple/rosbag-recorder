@@ -1,7 +1,7 @@
 import rosbag
 import pickle
 import sys
-
+from rospy_message_converter import message_converter
 
 class pickleBag:
 	def __init__(self):
@@ -21,13 +21,13 @@ class pickleBag:
 		self.out = dict()
 		for idx, (topic, msg, mt) in enumerate(bag.read_messages()):
 			new_line = dict()
-			new_line['msg'] = msg
+			new_line['msg'] = message_converter.convert_ros_message_to_dictionary(msg)	
 
 			if idx is 0:
-				time_offset = mt.to_sec()
+				time_offset = float(mt.to_sec())
 				new_line['timestamp'] = 0
 			else:
-				new_line['timestamp']  = mt.to_sec()-time_offset
+				new_line['timestamp']  = float(mt.to_sec()-time_offset)
 
 			#print(new_line)
 			topic = topic[1:]
