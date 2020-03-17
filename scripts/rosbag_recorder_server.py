@@ -36,7 +36,7 @@ def recordTopics(req):
 	recording = True
 	return RecordTopicsResponse(True)
  
-def stopRecording(req):
+def stopRecording(req, timeout = 2.0):
 	global pidDict
 	global recording
 	global pb
@@ -49,8 +49,10 @@ def stopRecording(req):
 		print("Stop recording to bag named %s"%(req.name))
 		p = pidDict[req.name]
 		process = psutil.Process(p.pid)
-		for subProcess in process.children(recursive=True):
+		children = process.children(recursive=True)
+		for subProcess in children:
 			subProcess.send_signal(signal.SIGINT)
+		psutil.wait_procs(children, timeout=timeout)
 		p.wait()
 
 		# Pickle the bag after you're done saving
