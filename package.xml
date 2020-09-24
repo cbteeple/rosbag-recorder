@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>rosbag_recorder</name>
+  <name>video_recorder</name>
   <version>1.0.0</version>
   <description>Service to list topics and select them for recording</description>
 

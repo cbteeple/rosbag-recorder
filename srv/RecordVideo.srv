@@ -1,4 +1,3 @@
 string name
-string[] topics
 ---
 bool success

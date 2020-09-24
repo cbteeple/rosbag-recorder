@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(rosbag_recorder)
+project(video_recorder)
 
 find_package(catkin REQUIRED COMPONENTS
   roscpp
@@ -11,7 +11,7 @@ find_package(catkin REQUIRED COMPONENTS
 
 add_service_files(
   FILES
-  RecordTopics.srv
+  RecordVideo.srv
   StopRecording.srv
 )
 
